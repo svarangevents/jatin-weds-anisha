@@ -1,7 +1,7 @@
 
 /* =====================================================
    JATIN & ANISHA WEDDING INVITATION
-   PREMIUM REALISTIC ENVELOPE DESIGN
+   FINAL COMPLETE STYLESHEET
 ===================================================== */
 
 
@@ -18,41 +18,64 @@
 html {
     width: 100%;
     min-height: 100%;
-    scroll-behavior: smooth;
 }
 
 body {
     width: 100%;
     min-height: 100vh;
     min-height: 100svh;
+
     overflow: hidden;
+
+    position: relative;
 
     font-family: Georgia, serif;
 
-    background:
-        radial-gradient(
-            ellipse at 50% 40%,
-            #C4DEDE 0%,
-            #B5D1D2 50%,
-            #9EBFC0 100%
-        );
-
-    position: relative;
+    background: linear-gradient(
+        180deg,
+        #B4D0D1 0%,
+        #AFCBCC 50%,
+        #9FBFC0 100%
+    );
 }
 
 
 /* =====================================================
-   2. FALLING FLOWERS
+   2. MAIN AQUA BACKGROUND
+===================================================== */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    background: radial-gradient(
+        ellipse at 50% 40%,
+        rgba(255, 255, 255, 0.12),
+        transparent 70%
+    );
+}
+
+
+/* =====================================================
+   3. FALLING FLOWERS LAYER
 ===================================================== */
 
 .flower-layer {
     position: fixed;
+
     inset: 0;
 
     width: 100%;
     height: 100%;
 
     overflow: hidden;
+
     pointer-events: none;
 
     z-index: 20;
@@ -60,6 +83,7 @@ body {
 
 .flower {
     position: absolute;
+
     top: -60px;
 
     display: block;
@@ -76,7 +100,10 @@ body {
     will-change: transform;
 }
 
-/* Flower positions */
+
+/* =====================================================
+   4. FLOWER POSITIONS AND SPEED
+===================================================== */
 
 .flower:nth-child(1)  { left: 3%;  animation-duration: 9s;  animation-delay: 0s; }
 .flower:nth-child(2)  { left: 10%; animation-duration: 12s; animation-delay: 2s; }
@@ -112,7 +139,9 @@ body {
 .flower:nth-child(30) { left: 62%; animation-duration: 9s;  animation-delay: 8s; }
 
 
-/* Flower animation */
+/* =====================================================
+   5. FLOWER FALLING ANIMATION
+===================================================== */
 
 @keyframes flowerFall {
 
@@ -126,7 +155,7 @@ body {
     }
 
     50% {
-        transform: translate3d(25px, 50vh, 0) rotate(180deg);
+        transform: translate3d(22px, 50vh, 0) rotate(180deg);
         opacity: 1;
     }
 
@@ -138,482 +167,217 @@ body {
 
 
 /* =====================================================
-   3. MAIN SCREEN
+   6. MAIN ENVELOPE SCREEN
 ===================================================== */
 
 .main-screen {
+    position: relative;
+
+    z-index: 2;
+
     width: 100%;
+
     min-height: 100vh;
     min-height: 100svh;
 
     display: flex;
+
     flex-direction: column;
 
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    position: relative;
-    z-index: 2;
+    padding: 20px 15px;
 
-    padding: 25px 15px;
+    opacity: 1;
+    visibility: visible;
 
-    transition: opacity 0.7s ease;
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
 }
+
+
+/* Main screen disappears after envelope click */
 
 .main-screen.hidden {
     opacity: 0;
+    visibility: hidden;
+
     pointer-events: none;
 }
 
 
 /* =====================================================
-   4. ENVELOPE BODY
+   7. REALISTIC ENVELOPE IMAGE
 ===================================================== */
 
 .envelope {
     position: relative;
 
+    display: block;
+
     width: 340px;
-    height: 490px;
+
+    aspect-ratio: 888 / 1308;
 
     max-width: 82vw;
     max-height: 55vh;
 
     border: none;
+
+    padding: 0;
+
     outline: none;
 
     background: transparent;
 
     cursor: pointer;
 
-    perspective: 1400px;
-
     isolation: isolate;
 
-    filter:
-        drop-shadow(0 12px 12px rgba(73, 36, 24, 0.15))
-        drop-shadow(0 28px 28px rgba(55, 43, 35, 0.20));
-
     -webkit-tap-highlight-color: transparent;
-}
 
-
-/* =====================================================
-   5. REALISTIC RED PAPER TEXTURE
-===================================================== */
-
-.envelope-back {
-    position: absolute;
-    inset: 0;
-
-    z-index: 1;
-
-    overflow: hidden;
-
-    border-radius: 5px;
-
-    background-color: #96382C;
-
-    background-image:
-
-        radial-gradient(
-            ellipse at 30% 20%,
-            rgba(255, 190, 150, 0.20),
-            transparent 45%
-        ),
-
-        radial-gradient(
-            ellipse at 80% 85%,
-            rgba(60, 15, 10, 0.18),
-            transparent 50%
-        ),
-
-        repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.035) 0px,
-            rgba(255,255,255,0.035) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-
-        linear-gradient(
-            135deg,
-            #B84C3D 0%,
-            #96382C 48%,
-            #76261F 100%
+    filter:
+        drop-shadow(
+            0 12px 12px rgba(73, 36, 24, 0.15)
+        )
+        drop-shadow(
+            0 28px 28px rgba(55, 43, 35, 0.20)
         );
 
-    border: 2px solid #C16A50;
-
-    box-shadow:
-        inset 0 2px 5px rgba(255,255,255,0.22),
-        inset 0 -5px 10px rgba(50,10,5,0.20);
-}
-
-
-/* =====================================================
-   6. INNER INVITATION CARD
-===================================================== */
-
-.inside-card {
-    position: absolute;
-
-    width: 90%;
-    height: 90%;
-
-    left: 5%;
-    bottom: 5%;
-
-    z-index: 2;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #FFFDF6,
-            #F3E8D4
-        );
-
-    border: 2px solid #D7B987;
-
-    color: #8F3026;
-
-    font-family: cursive;
-    font-size: 45px;
-
-    box-shadow:
-        0 0 15px rgba(0,0,0,0.15),
-        inset 0 0 12px rgba(180,140,80,0.10);
+    transform: translateY(-25px);
 
     transition:
-        transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-
-    transform: translateY(0);
-}
-
-.inside-card .ampersand {
-    font-size: 25px;
-    color: #B58A4C;
+        transform 0.7s ease,
+        filter 0.7s ease;
 }
 
 
-/* =====================================================
-   7. ENVELOPE FRONT PANEL
-===================================================== */
+/* Complete envelope PNG */
 
-.envelope-front {
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 4;
-
-    overflow: hidden;
-
-    border-radius: 4px;
-
-    background-color: #96382C;
-
-    background-image:
-
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(255, 220, 170, 0.08),
-            transparent 60%
-        ),
-
-        repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.035) 0px,
-            rgba(255,255,255,0.035) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-
-        linear-gradient(
-            145deg,
-            #B34B3B,
-            #943329 65%,
-            #78251F
-        );
-
-    border: 2px solid #C16A50;
-
-    box-shadow:
-        inset 0 2px 6px rgba(255,255,255,0.18),
-        inset 0 -5px 10px rgba(50,10,5,0.15);
-}
-
-
-/* =====================================================
-   8. GOLD DECORATIVE BORDER
-===================================================== */
-
-.front-art {
-    position: absolute;
-
-    inset: 18px;
-
-    border: 1px solid rgba(245, 215, 165, 0.85);
-
-    outline: 1px solid rgba(245, 215, 165, 0.55);
-    outline-offset: 5px;
-
-    padding: 18px 10px;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: space-between;
-    align-items: center;
-
-    color: #F1D7A5;
-
-    text-align: center;
-
-    text-shadow:
-        0 1px 2px rgba(65, 20, 10, 0.4),
-        0 0 4px rgba(255, 220, 160, 0.15);
-}
-
-
-/* Decorative motifs */
-
-.sun-row {
-    font-size: 26px;
-    letter-spacing: 7px;
-    color: #F5DDAE;
-}
-
-.tree-art {
-    font-size: 48px;
-    line-height: 1.2;
-    color: #F4D9A7;
-}
-
-.dancer-row {
-    font-size: 32px;
-    letter-spacing: 12px;
-    color: #F4D9A7;
-}
-
-.animal-row {
-    font-size: 27px;
-    letter-spacing: 12px;
-    color: #F4D9A7;
-}
-
-.bottom-border {
-    width: 100%;
-
-    padding-top: 12px;
-
-    border-top: 1px solid rgba(245, 215, 165, 0.9);
-
-    font-size: 16px;
-    letter-spacing: 3px;
-
-    color: #F4D9A7;
-}
-
-
-/* =====================================================
-   9. RAISED ENVELOPE FLAP
-===================================================== */
-
-.envelope-flap {
-    position: absolute;
-
-    top: 0;
-    left: 0;
+.envelope-artwork {
+    display: block;
 
     width: 100%;
-    height: 52%;
+    height: 100%;
 
-    z-index: 6;
+    object-fit: contain;
 
-    transform-origin: top center;
+    object-position: center;
 
-    transform-style: preserve-3d;
+    pointer-events: none;
 
-    backface-visibility: visible;
-
-    transition:
-        transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        100% 70%,
-        50% 100%,
-        0 70%
-    );
-
-    background-color: #A33F32;
-
-    background-image:
-
-        radial-gradient(
-            ellipse at 50% 15%,
-            rgba(255, 200, 150, 0.18),
-            transparent 65%
-        ),
-
-        repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.025) 0px,
-            rgba(255,255,255,0.025) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-
-        linear-gradient(
-            135deg,
-            #BA5040,
-            #913127
-        );
-
-    box-shadow:
-        inset 0 2px 5px rgba(255,255,255,0.2),
-        0 8px 12px rgba(50, 10, 5, 0.20);
-}
-
-
-/* Gold artwork on flap */
-
-.flap-art {
-    position: absolute;
-
-    inset: 15px 10px 35px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: space-around;
-
-    color: #F4D9A7;
-
-    font-size: 24px;
-
-    text-shadow:
-        0 1px 2px rgba(60, 20, 10, 0.4);
-}
-
-.art-branch {
-    font-size: 30px;
-    margin-top: 10px;
-}
-
-.art-dancers {
-    font-size: 25px;
-    margin-top: 8px;
+    user-select: none;
 }
 
 
 /* =====================================================
-   10. REALISTIC IVORY WAX SEAL
+   8. COMPLETE AJ LOGO INSIDE IVORY WAX SEAL
 ===================================================== */
 
-.wax-seal {
+.envelope .wax-seal {
     position: absolute;
 
     left: 50%;
-    top: 50%;
+    top: 52%;
 
-    width: 110px;
-    height: 110px;
+    width: 32%;
+
+    aspect-ratio: 1 / 1;
+
+    height: auto;
 
     transform: translate(-50%, -50%);
 
-    z-index: 9;
+    z-index: 5;
 
     display: flex;
-    align-items: center;
+
     justify-content: center;
+    align-items: center;
 
     overflow: hidden;
 
+    border: none;
+
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle at 35% 25%,
-            #FFFFFF 0%,
-            #F9F0DD 35%,
-            #E8D5B5 78%,
-            #CDB58E 100%
-        );
+    background: transparent;
 
-    border: 5px solid #E8D6B5;
+    box-shadow: none;
 
-    box-shadow:
-
-        0 5px 10px rgba(0,0,0,0.22),
-
-        0 12px 20px rgba(50,20,10,0.20),
-
-        inset 0 3px 5px rgba(255,255,255,0.9),
-
-        inset 0 -4px 6px rgba(140,100,50,0.15);
-
-    transition:
-        opacity 0.4s ease,
-        transform 0.5s ease;
+    pointer-events: none;
 }
 
 
-/* Complete AJ logo inside the wax seal */
+/* Complete logo image */
 
-.wax-seal img {
+.envelope .wax-seal img {
     display: block;
 
     width: 90%;
     height: 90%;
 
     object-fit: contain;
+
     object-position: center;
 
+    border: none;
+
     border-radius: 50%;
+
+    background: transparent;
 }
 
 
 /* =====================================================
-   11. ENVELOPE OPENING ANIMATION
+   9. ENVELOPE CLICK ANIMATION
 ===================================================== */
 
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
-    z-index: 0;
+.envelope.opening {
+
+    animation: gentleEnvelopeOpen 0.75s ease forwards;
+
 }
 
-.envelope.open .inside-card {
-    transform: translateY(-110%);
-    z-index: 7;
-}
 
-.envelope.open .wax-seal {
-    opacity: 0;
+@keyframes gentleEnvelopeOpen {
 
-    transform:
-        translate(-50%, -50%)
-        scale(0.5);
+    0% {
+        transform: translateY(-25px) scale(1);
+        filter: drop-shadow(
+            0 12px 12px rgba(73, 36, 24, 0.15)
+        );
+    }
+
+    45% {
+        transform: translateY(-30px) scale(1.035) rotate(-1deg);
+        filter: drop-shadow(
+            0 18px 18px rgba(73, 36, 24, 0.18)
+        );
+    }
+
+    100% {
+        transform: translateY(-20px) scale(1.015) rotate(0deg);
+        filter: drop-shadow(
+            0 10px 15px rgba(73, 36, 24, 0.12)
+        );
+    }
+
 }
 
 
 /* =====================================================
-   12. YOU'RE INVITED TEXT
+   10. YOU'RE INVITED TEXT
 ===================================================== */
 
 .invitation-text {
     position: absolute;
 
     bottom: 5%;
+
+    left: 0;
 
     width: 100%;
 
@@ -624,7 +388,12 @@ body {
     z-index: 3;
 
     color: #205C57;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
+
 
 .invitation-text h1 {
     font-family: cursive;
@@ -632,13 +401,15 @@ body {
     font-size: clamp(38px, 7vw, 56px);
 
     font-weight: normal;
+
     font-style: italic;
 
     color: #205C57;
 
     text-shadow:
-        0 2px 2px rgba(255,255,255,0.25);
+        0 2px 2px rgba(255, 255, 255, 0.25);
 }
+
 
 .invitation-text p {
     margin-top: 10px;
@@ -646,6 +417,7 @@ body {
     font-family: Georgia, serif;
 
     font-size: 16px;
+
     font-style: italic;
 
     color: #425C57;
@@ -653,7 +425,7 @@ body {
 
 
 /* =====================================================
-   13. FULL INVITATION SCREEN
+   11. EMPTY AQUA SCREEN AFTER CLICK
 ===================================================== */
 
 .invitation-screen {
@@ -662,274 +434,91 @@ body {
     inset: 0;
 
     width: 100%;
+
     height: 100%;
     height: 100dvh;
 
-    z-index: 30;
+    z-index: 10;
 
-    overflow-y: auto;
-    overscroll-behavior: contain;
+    overflow: hidden;
 
-    padding: 35px 16px;
+    pointer-events: none;
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    background:
-        linear-gradient(
-            180deg,
-            #B4D0D1,
-            #AFCBCC,
-            #9FBFC0
-        );
+    background: linear-gradient(
+        180deg,
+        #B4D0D1 0%,
+        #AFCBCC 50%,
+        #9FBFC0 100%
+    );
 
     opacity: 0;
+
     visibility: hidden;
 
     transition:
-        opacity 0.8s ease,
-        visibility 0.8s ease;
+        opacity 1s ease,
+        visibility 1s ease;
 }
+
+
+/* Only aqua background remains */
 
 .invitation-screen.visible {
+
     opacity: 1;
+
     visibility: visible;
+
+    pointer-events: auto;
+
 }
 
 
 /* =====================================================
-   14. COMPLETE WEDDING INVITATION CARD
-===================================================== */
-
-.full-card {
-    position: relative;
-
-    width: 100%;
-    max-width: 520px;
-
-    min-height: 650px;
-
-    padding: 45px 25px;
-
-    text-align: center;
-
-    color: #71342B;
-
-    background:
-        linear-gradient(
-            145deg,
-            #FFFEF8,
-            #F5EAD7
-        );
-
-    border: 8px double #B78A54;
-
-    box-shadow:
-        0 15px 35px rgba(55,35,20,0.20),
-        inset 0 0 20px rgba(170,125,65,0.08);
-}
-
-
-/* Card decorative heading */
-
-.card-decoration {
-    color: #B78A54;
-    font-size: 28px;
-    margin-bottom: 28px;
-}
-
-.card-small-heading {
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #92734F;
-}
-
-
-/* Couple names */
-
-.full-card h1 {
-    margin-top: 18px;
-
-    font-family: cursive;
-
-    font-size: clamp(38px, 8vw, 58px);
-
-    font-weight: normal;
-
-    color: #8F3026;
-}
-
-.full-card h1 span {
-    color: #B58A4C;
-    font-size: 35px;
-}
-
-
-/* Card divider */
-
-.card-divider {
-    color: #B58A4C;
-    font-size: 24px;
-    margin: 22px 0;
-}
-
-
-/* Complete uploaded logo artwork */
-
-.wedding-artwork {
-    display: block;
-
-    width: 80%;
-    max-width: 350px;
-
-    max-height: 230px;
-
-    object-fit: contain;
-
-    margin: 15px auto;
-}
-
-
-/* Invitation wording */
-
-.full-card h2 {
-    font-family: Georgia, serif;
-
-    font-size: 19px;
-    font-weight: normal;
-
-    line-height: 1.6;
-
-    margin-top: 20px;
-}
-
-.card-message {
-    max-width: 360px;
-
-    margin: 18px auto;
-
-    line-height: 1.8;
-    font-size: 15px;
-}
-
-.full-card h3 {
-    font-family: cursive;
-
-    font-size: 28px;
-    font-weight: normal;
-
-    color: #8F3026;
-}
-
-.card-details {
-    line-height: 2.1;
-
-    margin-top: 15px;
-
-    font-size: 15px;
-}
-
-.card-footer {
-    margin-top: 35px;
-
-    font-family: cursive;
-    font-size: 22px;
-}
-
-
-/* =====================================================
-   15. CLOSE INVITATION BUTTON
-===================================================== */
-
-.close-button {
-    position: fixed;
-
-    top: 15px;
-    right: 15px;
-
-    z-index: 40;
-
-    width: 40px;
-    height: 40px;
-
-    border: none;
-    border-radius: 50%;
-
-    background: #8F3026;
-
-    color: #FFFFFF;
-
-    font-size: 20px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 3px 8px rgba(0,0,0,0.2);
-}
-
-
-/* =====================================================
-   16. TABLET RESPONSIVE
+   12. TABLET RESPONSIVE
 ===================================================== */
 
 @media (min-width: 481px) and (max-width: 1024px) {
 
     .envelope {
-        width: 330px;
-        height: 470px;
-        max-height: 54vh;
+        width: 360px;
+
+        max-height: 55vh;
     }
 
-    .wax-seal {
-        width: 105px;
-        height: 105px;
+    .envelope .wax-seal {
+        width: 32%;
     }
 
     .invitation-text h1 {
-        font-size: 48px;
+        font-size: 50px;
     }
+
 }
 
 
 /* =====================================================
-   17. MOBILE RESPONSIVE
+   13. MOBILE RESPONSIVE
 ===================================================== */
 
 @media (max-width: 480px) {
 
     .envelope {
         width: 280px;
-        height: 400px;
+
+        max-width: 82vw;
+
         max-height: 52vh;
+
+        transform: translateY(-20px);
     }
 
-    .front-art {
-        inset: 13px;
-        padding: 15px 5px;
+    .envelope .wax-seal {
+        width: 32%;
     }
 
-    .sun-row {
-        font-size: 21px;
-    }
-
-    .tree-art {
-        font-size: 38px;
-    }
-
-    .dancer-row {
-        font-size: 26px;
-        letter-spacing: 8px;
-    }
-
-    .animal-row {
-        font-size: 23px;
-        letter-spacing: 8px;
-    }
-
-    .wax-seal {
-        width: 92px;
-        height: 92px;
+    .invitation-text {
+        bottom: 5%;
     }
 
     .invitation-text h1 {
@@ -944,36 +533,21 @@ body {
         font-size: 22px;
     }
 
-    .full-card {
-        padding: 35px 18px;
-        min-height: 600px;
-    }
-
-    .wedding-artwork {
-        width: 85%;
-    }
 }
 
 
 /* =====================================================
-   18. SHORT SCREEN RESPONSIVE
+   14. SHORT SCREEN RESPONSIVE
 ===================================================== */
 
 @media (max-height: 650px) {
 
-    .main-screen {
-        padding: 12px;
-    }
-
     .envelope {
         width: 230px;
-        height: 330px;
-        max-height: 50vh;
-    }
 
-    .wax-seal {
-        width: 80px;
-        height: 80px;
+        max-height: 48vh;
+
+        transform: translateY(-10px);
     }
 
     .invitation-text {
@@ -987,9 +561,29 @@ body {
     .invitation-text p {
         font-size: 13px;
     }
+
 }
 
 
 /* =====================================================
-   END OF STYLESHEET
+   15. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .flower {
+        animation-duration: 25s;
+    }
+
+    .main-screen,
+    .invitation-screen,
+    .envelope {
+        transition-duration: 0.2s;
+    }
+
+}
+
+
+/* =====================================================
+   END OF FINAL STYLESHEET
 ===================================================== */

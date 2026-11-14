@@ -1,34 +1,67 @@
 
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
+/* MAIN BACKGROUND */
 body {
     min-height: 100vh;
+    min-height: 100svh;
+
     display: flex;
     flex-direction: column;
+
+    background: linear-gradient(
+        180deg,
+        #B4D0D1 0%,
+        #AFCBCC 50%,
+        #9FBFC0 100%
+    );
+
+    overflow-x: hidden;
 }
 
+/* INVITATION TEXT */
 .invitation-text {
     text-align: center;
+
     margin-top: auto;
-    padding: 20px 20px 65px;
+
+    padding: 20px 15px 65px;
 }
 
+/* YOU'RE INVITED HEADING */
 .invitation-text h1 {
     font-family: cursive;
     font-size: 42px;
     font-weight: normal;
+
     color: #205C57;
 }
 
+/* SUBTITLE */
 .invitation-text p {
     font-family: cursive;
     font-size: 16px;
     font-style: italic;
+
     color: #425C57;
+
     margin-top: 8px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+
+    .invitation-text h1 {
+        font-size: 38px;
+    }
+
+    .invitation-text p {
+        font-size: 14px;
+    }
+
 }

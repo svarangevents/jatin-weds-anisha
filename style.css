@@ -192,3 +192,158 @@ body {
         opacity: 0;
     }
 }
+
+
+/* ENVELOPE SECTION */
+
+.envelope-stage {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.envelope {
+    position: relative;
+    width: min(82vw, 340px);
+    height: 215px;
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    perspective: 1000px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ENVELOPE BACK */
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        #ead9b9,
+        #c6a16c
+    );
+    border-radius: 9px;
+    box-shadow: 0 12px 30px rgba(65, 45, 20, 0.2);
+    z-index: 1;
+}
+
+/* INVITATION CARD */
+
+.invitation-card {
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    width: 84%;
+    height: 280px;
+    background: #fffdf8;
+    border: 2px solid #d6bd91;
+    border-radius: 5px;
+    overflow: hidden;
+    transform: translate(-50%, 0) scale(0.65);
+    transform-origin: bottom center;
+    transition: transform 1s ease;
+    z-index: 2;
+}
+
+.invitation-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ENVELOPE FRONT */
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        145deg,
+        #f1e5ce,
+        #d5b98d
+    );
+    clip-path: polygon(
+        0 0,
+        50% 58%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+    z-index: 4;
+}
+
+/* ENVELOPE FLAP */
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 62%;
+    background: #c6a16c;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform 0.8s ease;
+    backface-visibility: visible;
+    z-index: 5;
+}
+
+/* WAX SEAL */
+
+.wax-seal {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    width: 68px;
+    height: 68px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        #fffdf4,
+        #e8d8b8
+    );
+    border: 3px solid #c4a16b;
+    box-shadow: 0 3px 9px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #98703b;
+    font-family: cursive;
+    font-size: 25px;
+    z-index: 6;
+    transition: opacity 0.4s ease;
+}
+
+/* OPENING ANIMATION */
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .wax-seal {
+    opacity: 0;
+}
+
+.envelope.open .invitation-card {
+    transform: translate(-50%, -155px) scale(1);
+}
+
+/* MOBILE ADJUSTMENT */
+
+@media (max-width: 480px) {
+    .envelope {
+        width: 82vw;
+        height: 190px;
+    }
+
+    .invitation-card {
+        height: 250px;
+    }
+}

@@ -1,80 +1,119 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jatin & Anisha | Wedding Invitation</title>
+    <title>Jatin & Anisha - Wedding Invitation</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- FALLING FLOWERS ANIMATION -->
+
+    <div class="flower">🌸</div>
+    <div class="flower">🌼</div>
+    <div class="flower">🌸</div>
+    <div class="flower">🌿</div>
+    <div class="flower">🌼</div>
+
+
+    <!-- ENVELOPE SECTION -->
+
+    <div class="envelope-stage">
+
+        <button
+            class="envelope"
+            id="envelope"
+            type="button"
+            aria-label="Open wedding invitation"
+        >
+
+            <!-- ENVELOPE BACK -->
+
+            <div class="envelope-back"></div>
+
+
+            <!-- WEDDING INVITATION CARD -->
+
+            <div class="invitation-card">
+
+                <div class="card-content">
+
+                    <h2>Jatin & Anisha</h2>
+
+                    <p>
+                        Together with their families
+                    </p>
+
+                    <h3>Request the pleasure of your company</h3>
+
+                    <p>
+                        At their Wedding Celebration
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ENVELOPE FRONT -->
+
+            <div class="envelope-front"></div>
+
+
+            <!-- OPENING FLAP -->
+
+            <div class="envelope-flap"></div>
+
+
+            <!-- WAX SEAL WITH AJ MONOGRAM -->
+
+            <div class="wax-seal">
+
+                <img
+                    src="AJ_wedding_monogram_transparent.png"
+                    alt="AJ Wedding Monogram"
+                    style="width: 85%; height: 85%; object-fit: contain;"
+                >
+
+            </div>
+
+        </button>
+
+    </div>
+
+
+    <!-- BOTTOM INVITATION TEXT -->
+
     <div class="invitation-text">
+
         <h1>You're Invited</h1>
-        <p>Tap the envelope to open your invitation</p>
-   </div>
+
+        <p>
+            Tap the envelope to open your invitation
+        </p>
+
+    </div>
+
+
+    <!-- ENVELOPE CLICK ANIMATION -->
+
+    <script>
+
+        const envelope = document.getElementById("envelope");
+
+        envelope.addEventListener("click", function () {
+
+            envelope.classList.toggle("open");
+
+        });
+
+    </script>
 
 </body>
 </html>
-
-
-<!-- FALLING FLOWERS ANIMATION -->
-<div class="flower-container">
-    <span class="falling-flower">🌸</span>
-    <span class="falling-flower">🌼</span>
-    <span class="falling-flower">🌸</span>
-    <span class="falling-flower">🌿</span>
-    <span class="falling-flower">🌸</span>
-    <span class="falling-flower">🌼</span>
-    <span class="falling-flower">🌸</span>
-    <span class="falling-flower">🌿</span>
-    <span class="falling-flower">🌼</span>
-    <span class="falling-flower">🌸</span>
-    <span class="falling-flower">🌼</span>
-    <span class="falling-flower">🌸</span>
-</div>
-
-<!-- WEDDING ENVELOPE -->
-<div class="envelope-stage">
-
-    <button class="envelope" id="envelope" type="button"
-        aria-label="Open wedding invitation">
-
-        <!-- Envelope back -->
-        <div class="envelope-back"></div>
-
-        <!-- Wedding invitation card -->
-        <div class="invitation-card">
-            <img
-                src="AJ_wedding_monogram_transparent.png"
-                alt="AJ Wedding Invitation Artwork"
-            >
-        </div>
-
-        <!-- Envelope front -->
-        <div class="envelope-front"></div>
-
-        <!-- Opening flap -->
-        <div class="envelope-flap"></div>
-
-        <!-- Wax seal -->
-        <div class="wax-seal">
-            <span>AJ</span>
-        </div>
-
-    </button>
-
-</div>
-
-
-<script>
-const envelope = document.getElementById("envelope");
-
-envelope.addEventListener("click", function () {
-    envelope.classList.toggle("open");
-});
-</script>
-

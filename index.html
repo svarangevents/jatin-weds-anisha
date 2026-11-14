@@ -15,7 +15,7 @@
     <div class="invitation-text">
         <h1>You're Invited</h1>
         <p>Tap the envelope to open your invitation</p>
-    </div>
+   </div>
 
 </body>
 </html>
@@ -37,4 +37,43 @@
     <span class="falling-flower">🌸</span>
 </div>
 
+<!-- WEDDING ENVELOPE -->
+<div class="envelope-stage">
+
+    <button class="envelope" id="envelope" type="button"
+        aria-label="Open wedding invitation">
+
+        <!-- Envelope back -->
+        <div class="envelope-back"></div>
+
+        <!-- Wedding invitation card -->
+        <div class="invitation-card">
+            <img
+                src="AJ_wedding_monogram_transparent.png"
+                alt="AJ Wedding Invitation Artwork"
+            >
+        </div>
+
+        <!-- Envelope front -->
+        <div class="envelope-front"></div>
+
+        <!-- Opening flap -->
+        <div class="envelope-flap"></div>
+
+        <!-- Wax seal -->
+        <div class="wax-seal">
+            <span>AJ</span>
+        </div>
+
+    </button>
+
+</div>
+
+/* ENVELOPE CLICK ANIMATION */
+
+const envelope = document.getElementById("envelope");
+
+envelope.addEventListener("click", function () {
+    envelope.classList.toggle("open");
+});
 

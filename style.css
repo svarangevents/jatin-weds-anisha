@@ -6,17 +6,13 @@
     box-sizing: border-box;
 }
 
-/* MAIN SCREEN */
-html,
+/* MAIN BACKGROUND */
 body {
+    min-height: 100vh;
+    min-height: 100svh;
     width: 100%;
-    height: 100%;
     overflow: hidden;
-}
-
-body {
-    height: 100vh;
-    height: 100dvh;
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -27,151 +23,49 @@ body {
         #AFCBCC 50%,
         #9FBFC0 100%
     );
-
-    overflow: hidden;
 }
 
-/* INVITATION TEXT */
-.invitation-text {
-    text-align: center;
-
-    margin-top: auto;
-
-    padding: 15px 10px
-        calc(20px + env(safe-area-inset-bottom));
-}
-
-/* MAIN HEADING */
-.invitation-text h1 {
-    font-family: cursive;
-    font-size: 42px;
-    font-weight: normal;
-
-    color: #205C57;
-}
-
-/* SUBTITLE */
-.invitation-text p {
-    font-family: cursive;
-    font-size: 16px;
-    font-style: italic;
-
-    color: #425C57;
-
-    margin-top: 8px;
-}
-
-/* MOBILE SCREEN */
-@media (max-width: 480px) {
-    .invitation-text h1 {
-        font-size: 38px;
-    }
-
-    .invitation-text p {
-        font-size: 14px;
-    }
-}
-
-/* FALLING FLOWER SHOWER */
-
-.flower-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.falling-flower {
+/* FALLING FLOWERS */
+.flower {
     position: absolute;
     top: -50px;
-    font-size: 23px;
-    opacity: 0;
-    animation: flowerFall linear infinite;
+    z-index: 5;
+    pointer-events: none;
+    animation: falling linear infinite;
 }
 
-/* FLOWER FALLING POSITIONS */
-
-.falling-flower:nth-child(1) {
-    left: 5%;
-    animation-duration: 8s;
-    animation-delay: 0s;
+.flower:nth-child(1) {
+    left: 10%;
+    animation-duration: 9s;
 }
 
-.falling-flower:nth-child(2) {
-    left: 15%;
-    animation-duration: 10s;
+.flower:nth-child(2) {
+    left: 30%;
+    animation-duration: 12s;
     animation-delay: 2s;
 }
 
-.falling-flower:nth-child(3) {
-    left: 25%;
-    animation-duration: 7s;
-    animation-delay: 4s;
-}
-
-.falling-flower:nth-child(4) {
-    left: 35%;
-    animation-duration: 9s;
+.flower:nth-child(3) {
+    left: 50%;
+    animation-duration: 10s;
     animation-delay: 1s;
 }
 
-.falling-flower:nth-child(5) {
-    left: 45%;
+.flower:nth-child(4) {
+    left: 70%;
     animation-duration: 11s;
     animation-delay: 3s;
 }
 
-.falling-flower:nth-child(6) {
-    left: 55%;
+.flower:nth-child(5) {
+    left: 90%;
     animation-duration: 8s;
-    animation-delay: 5s;
+    animation-delay: 2s;
 }
 
-.falling-flower:nth-child(7) {
-    left: 65%;
-    animation-duration: 10s;
-    animation-delay: 1.5s;
-}
-
-.falling-flower:nth-child(8) {
-    left: 75%;
-    animation-duration: 9s;
-    animation-delay: 3.5s;
-}
-
-.falling-flower:nth-child(9) {
-    left: 85%;
-    animation-duration: 7s;
-    animation-delay: 2.5s;
-}
-
-.falling-flower:nth-child(10) {
-    left: 95%;
-    animation-duration: 11s;
-    animation-delay: 4.5s;
-}
-
-.falling-flower:nth-child(11) {
-    left: 40%;
-    animation-duration: 12s;
-    animation-delay: 6s;
-}
-
-.falling-flower:nth-child(12) {
-    left: 80%;
-    animation-duration: 8s;
-    animation-delay: 6.5s;
-}
-
-/* FALLING MOVEMENT */
-
-@keyframes flowerFall {
+@keyframes falling {
     0% {
-        transform: translateY(-50px) translateX(0) rotate(0deg);
+        transform: translateY(-50px) rotate(0deg);
         opacity: 0;
     }
 
@@ -179,77 +73,59 @@ body {
         opacity: 1;
     }
 
-    50% {
-        transform: translateY(50vh) translateX(35px) rotate(180deg);
-    }
-
-    90% {
-        opacity: 1;
-    }
-
     100% {
-        transform: translateY(110vh) translateX(-25px) rotate(360deg);
-        opacity: 0;
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.8;
     }
 }
 
-
-/* ENVELOPE SECTION */
-
+/* ENVELOPE AREA */
 .envelope-stage {
     flex: 1;
     min-height: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 25px 15px;
+    justify-content: center;
     position: relative;
     z-index: 2;
 }
 
+/* ENVELOPE BUTTON */
 .envelope {
     position: relative;
-    width: min(82vw, 340px);
-    height: 215px;
+    width: 280px;
+    height: 190px;
     border: none;
-    padding: 0;
     background: transparent;
     cursor: pointer;
     perspective: 1000px;
-    -webkit-tap-highlight-color: transparent;
 }
 
 /* ENVELOPE BACK */
-
 .envelope-back {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        135deg,
-        #ead9b9,
-        #c6a16c
-    );
-    border-radius: 9px;
-    box-shadow: 0 12px 30px rgba(65, 45, 20, 0.2);
+    background: #8F3026;
+    border-radius: 5px;
     z-index: 1;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
-/* INVITATION CARD */
-
+/* WEDDING CARD */
 .invitation-card {
     position: absolute;
-    left: 50%;
-    bottom: 8px;
-    width: 84%;
-    height: 280px;
-    background: #fffdf8;
-    border: 2px solid #d6bd91;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    bottom: 5%;
+    background: #fffdf7;
     border-radius: 5px;
-    overflow: hidden;
-    transform: translate(-50%, 0) scale(0.65);
-    transform-origin: bottom center;
-    transition: transform 1s ease;
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1s ease;
+    overflow: hidden;
 }
 
 .invitation-card img {
@@ -259,91 +135,130 @@ body {
 }
 
 /* ENVELOPE FRONT */
-
 .envelope-front {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        145deg,
-        #f1e5ce,
-        #d5b98d
-    );
+    background: #A63D30;
     clip-path: polygon(
         0 0,
-        50% 58%,
+        50% 55%,
         100% 0,
         100% 100%,
         0 100%
     );
-    z-index: 4;
+    z-index: 3;
 }
 
 /* ENVELOPE FLAP */
-
 .envelope-flap {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 62%;
-    background: #c6a16c;
+    height: 55%;
+    background: #8F3026;
     clip-path: polygon(0 0, 100% 0, 50% 100%);
-    transform-origin: top center;
+    transform-origin: top;
     transition: transform 0.8s ease;
-    backface-visibility: visible;
-    z-index: 5;
+    z-index: 4;
 }
 
 /* WAX SEAL */
-
 .wax-seal {
     position: absolute;
-    top: 48%;
-    left: 50%;
-    width: 68px;
-    height: 68px;
-    transform: translate(-50%, -50%);
+    width: 65px;
+    height: 65px;
+    background: #F5E9D8;
+    border: 3px solid #D8C6A4;
     border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        #fffdf4,
-        #e8d8b8
-    );
-    border: 3px solid #c4a16b;
-    box-shadow: 0 3px 9px rgba(0,0,0,0.2);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: #98703b;
-    font-family: cursive;
-    font-size: 25px;
-    z-index: 6;
-    transition: opacity 0.4s ease;
+    justify-content: center;
+
+    color: #A77B35;
+    font-family: serif;
+    font-size: 20px;
 }
 
-/* OPENING ANIMATION */
-
+/* ENVELOPE OPEN ANIMATION */
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope.open .invitation-card {
+    transform: translateY(-170px);
+    z-index: 6;
 }
 
 .envelope.open .wax-seal {
     opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.envelope.open .invitation-card {
-    transform: translate(-50%, -155px) scale(1);
+/* YOU'RE INVITED TEXT */
+.invitation-text {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    padding: 20px 20px 45px;
 }
 
-/* MOBILE ADJUSTMENT */
+.invitation-text h1 {
+    font-family: cursive;
+    font-size: 42px;
+    font-weight: normal;
+    color: #205C57;
+}
 
+.invitation-text p {
+    font-family: cursive;
+    font-size: 16px;
+    font-style: italic;
+    color: #425C57;
+    margin-top: 8px;
+}
+
+/* MOBILE RESPONSIVE */
 @media (max-width: 480px) {
+
     .envelope {
-        width: 82vw;
-        height: 190px;
+        width: 260px;
+        height: 175px;
     }
 
-    .invitation-card {
-        height: 250px;
+    .invitation-text h1 {
+        font-size: 36px;
+    }
+
+    .invitation-text p {
+        font-size: 14px;
+    }
+
+    .invitation-text {
+        padding-bottom: 35px;
+    }
+}
+
+/* SMALL SCREEN */
+@media (max-height: 650px) {
+    .envelope {
+        width: 220px;
+        height: 150px;
+    }
+
+    .invitation-text {
+        padding-bottom: 15px;
+    }
+
+    .invitation-text h1 {
+        font-size: 32px;
     }
 }

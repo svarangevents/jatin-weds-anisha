@@ -14,3 +14,24 @@ body {
         #9FBFC0 100%
     );
 }
+
+.invitation-text {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.invitation-text h1 {
+    font-family: cursive;
+    font-size: 42px;
+    font-weight: normal;
+    color: #205C57;
+}
+
+.invitation-text p {
+    font-family: cursive;
+    font-size: 16px;
+    font-style: italic;
+    color: #425C57;
+    margin-top: 8px;
+}

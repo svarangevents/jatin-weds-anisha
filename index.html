@@ -4,10 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#B4D0D1">
 
     <title>Jatin & Anisha | Wedding Invitation</title>
@@ -17,10 +14,9 @@
 
 <body>
 
-
-    <!-- =========================================
+    <!-- =====================================
          1. FALLING FLOWERS
-    ========================================== -->
+    ====================================== -->
 
     <div class="flower-layer">
 
@@ -60,111 +56,44 @@
     </div>
 
 
-    <!-- =========================================
+    <!-- =====================================
          2. MAIN ENVELOPE SCREEN
-    ========================================== -->
+    ====================================== -->
 
     <main class="main-screen" id="mainScreen">
 
-
-        <!-- ENVELOPE -->
+        <!-- COMPLETE REALISTIC ENVELOPE -->
 
         <button
             class="envelope"
             id="envelope"
             type="button"
-            aria-label="Open wedding invitation"
+            aria-label="Open wedding envelope"
         >
 
+            <!-- ENVELOPE PNG -->
 
-            <!-- ENVELOPE BACK -->
+            <img
+                class="envelope-artwork"
+                src="envelope_with_full_AJ_logo.png"
+                alt="Jatin and Anisha wedding envelope"
+            >
 
-            <div class="envelope-back"></div>
-
-
-            <!-- INNER INVITATION CARD -->
-
-            <div class="inside-card">
-
-                <span>J</span>
-
-                <span class="ampersand">&</span>
-
-                <span>A</span>
-
-            </div>
-
-
-            <!-- ENVELOPE FRONT PANEL -->
-
-            <div class="envelope-front">
-
-                <div class="front-art">
-
-                    <div class="sun-row">
-                        ✿　☼　✿
-                    </div>
-
-                    <div class="tree-art">
-                        ❧　✿　❧
-                    </div>
-
-                    <div class="dancer-row">
-                        ♙　♧　♙
-                    </div>
-
-                    <div class="animal-row">
-                        ❧　♧　❧
-                    </div>
-
-                    <div class="bottom-border">
-                        ◇ ◇ ◇ ◇ ◇ ◇ ◇
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ENVELOPE FLAP -->
-
-            <div class="envelope-flap">
-
-                <div class="flap-art">
-
-                    <div>
-                        ✿　❀　✿
-                    </div>
-
-                    <div class="art-branch">
-                        ❧　❀　❧
-                    </div>
-
-                    <div class="art-dancers">
-                        ♧　♙　♧
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- CENTRAL WAX SEAL -->
+            <!-- SEPARATE AJ LOGO INSIDE WAX SEAL -->
 
             <div class="wax-seal">
 
                 <img
-    src="envelope_with_full_AJ_logo.png"
-    alt="Complete AJ Wedding Logo"
->
+                    src="AJ_full_logo.png"
+                    alt="Complete AJ wedding logo"
+                >
 
             </div>
-
 
         </button>
 
 
-        <!-- INVITATION TEXT -->
+        <!-- INITIAL SCREEN TEXT -->
 
         <div class="invitation-text">
 
@@ -176,143 +105,24 @@
 
         </div>
 
-
     </main>
 
 
-
-    <!-- =========================================
-         3. COMPLETE WEDDING INVITATION
-    ========================================== -->
+    <!-- =====================================
+         3. EMPTY AQUA BACKGROUND AFTER CLICK
+    ====================================== -->
 
     <section
         class="invitation-screen"
         id="invitationScreen"
-        aria-label="Wedding invitation"
+        aria-label="Wedding invitation background"
     >
-
-
-        <!-- CLOSE BUTTON -->
-
-        <button
-            class="close-button"
-            id="closeInvitation"
-            type="button"
-            aria-label="Close invitation"
-        >
-            ✕
-        </button>
-
-
-
-        <!-- INVITATION CARD -->
-
-        <article class="full-card">
-
-
-            <!-- TOP DECORATION -->
-
-            <div class="card-decoration">
-                ✦　❀　✦
-            </div>
-
-
-            <!-- FAMILY MESSAGE -->
-
-            <p class="card-small-heading">
-                TOGETHER WITH THEIR FAMILIES
-            </p> F
-
-
-            <!-- COUPLE NAMES -->
-
-            <h1>
-                Jatin <span>&</span> Anisha
-            </h1>
-
-
-            <!-- DECORATIVE DIVIDER -->
-
-            <div class="card-divider">
-                ❧　❀　❧
-            </div>
-
-
-            <!-- COMPLETE AJ LOGO -->
-
-            <img
-                class="wedding-artwork"
-                src="AJ_full_logo.png"
-                alt="Jatin and Anisha Wedding Logo"
-            >
-
-
-            <!-- INVITATION MESSAGE -->
-
-            <h2>
-                Request the Pleasure of Your Company
-            </h2>
-
-
-            <p class="card-message">
-
-                As they begin their beautiful journey together,
-                your presence and blessings would mean the world
-                to them.
-
-            </p>
-
-
-            <!-- DECORATIVE DIVIDER -->
-
-            <div class="card-divider">
-                ✦　❀　✦
-            </div>
-
-
-            <!-- WEDDING DETAILS -->
-
-            <h3>
-                Wedding Celebration
-            </h3>
-
-
-            <p class="card-details">
-
-                Date · To Be Announced
-
-                <br>
-
-                Time · To Be Announced
-
-                <br>
-
-                Venue · To Be Announced
-
-            </p>
-
-
-            <!-- BOTTOM MESSAGE -->
-
-            <p class="card-footer">
-                With Love & Blessings
-            </p>
-
-
-            <div class="card-decoration">
-                ✦　❀　✦
-            </div>
-
-
-        </article>
-
     </section>
 
 
-
-    <!-- =========================================
-         4. ENVELOPE OPENING INTERACTION
-    ========================================== -->
+    <!-- =====================================
+         4. ENVELOPE TRANSITION
+    ====================================== -->
 
     <script>
 
@@ -325,45 +135,37 @@
         const invitationScreen =
             document.getElementById("invitationScreen");
 
-        const closeInvitation =
-            document.getElementById("closeInvitation");
+
+        let invitationOpened = false;
 
 
-        // OPEN ENVELOPE
+        // ENVELOPE CLICK
 
         envelope.addEventListener("click", function () {
 
-            envelope.classList.add("open");
+            if (invitationOpened) {
+                return;
+            }
 
+            invitationOpened = true;
+
+            // Gentle envelope movement
+            envelope.classList.add("opening");
+
+            // Fade away the envelope screen
             setTimeout(function () {
 
                 mainScreen.classList.add("hidden");
 
+                // Show only the aqua background
                 invitationScreen.classList.add("visible");
 
-            }, 1000);
-
-        });
-
-
-        // CLOSE INVITATION
-
-        closeInvitation.addEventListener("click", function () {
-
-            invitationScreen.classList.remove("visible");
-
-            setTimeout(function () {
-
-                mainScreen.classList.remove("hidden");
-
-                envelope.classList.remove("open");
-
-            }, 300);
+            }, 650);
 
         });
 
     </script>
 
-
 </body>
+
 </html>

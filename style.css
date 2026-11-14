@@ -1,16 +1,27 @@
 
-/* RESET */
+/* ==============================
+   RESET
+============================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* MAIN BACKGROUND */
+/* ==============================
+   MAIN BACKGROUND
+============================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
 body {
     min-height: 100vh;
     min-height: 100svh;
-    width: 100%;
     overflow: hidden;
     position: relative;
 
@@ -25,40 +36,59 @@ body {
     );
 }
 
-/* FALLING FLOWERS */
+/* ==============================
+   FALLING FLOWERS
+============================== */
+
 .flower {
-    position: absolute;
-    top: -50px;
-    z-index: 5;
+    position: fixed;
+    top: -60px;
+    z-index: 10;
     pointer-events: none;
+    font-size: 28px;
+    line-height: 1;
     animation: falling linear infinite;
+    will-change: transform;
 }
 
-.
-.flower:nth-of-type(1) { left: 5%; animation-duration: 8s; }
-.flower:nth-of-type(2) { left: 15%; animation-duration: 11s; }
-.flower:nth-of-type(3) { left: 25%; animation-duration: 9s; }
-.flower:nth-of-type(4) { left: 35%; animation-duration: 12s; }
-.flower:nth-of-type(5) { left: 45%; animation-duration: 8s; }
-.flower:nth-of-type(6) { left: 55%; animation-duration: 10s; }
-.flower:nth-of-type(7) { left: 65%; animation-duration: 9s; }
-.flower:nth-of-type(8) { left: 75%; animation-duration: 11s; }
-.flower:nth-of-type(9) { left: 85%; animation-duration: 8s; }
-.flower:nth-of-type(10) { left: 95%; animation-duration: 12s; }
-.flower:nth-of-type(n+11) {
-    left: calc(5% + (var(--i, 1) * 4%));
-    animation-duration: 9s;
-}
+/* Flower positions and timing */
 
-}
+.flower:nth-child(1)  { left: 5%;  animation-duration: 8s;  animation-delay: 0s; }
+.flower:nth-child(2)  { left: 15%; animation-duration: 11s; animation-delay: 2s; }
+.flower:nth-child(3)  { left: 25%; animation-duration: 9s;  animation-delay: 1s; }
+.flower:nth-child(4)  { left: 35%; animation-duration: 12s; animation-delay: 4s; }
+.flower:nth-child(5)  { left: 45%; animation-duration: 8s;  animation-delay: 3s; }
+.flower:nth-child(6)  { left: 55%; animation-duration: 10s; animation-delay: 1s; }
+.flower:nth-child(7)  { left: 65%; animation-duration: 9s;  animation-delay: 5s; }
+.flower:nth-child(8)  { left: 75%; animation-duration: 11s; animation-delay: 2s; }
+.flower:nth-child(9)  { left: 85%; animation-duration: 8s;  animation-delay: 4s; }
+.flower:nth-child(10) { left: 95%; animation-duration: 12s; animation-delay: 1s; }
+
+.flower:nth-child(11) { left: 10%; animation-duration: 10s; animation-delay: 5s; }
+.flower:nth-child(12) { left: 20%; animation-duration: 9s;  animation-delay: 3s; }
+.flower:nth-child(13) { left: 30%; animation-duration: 12s; animation-delay: 6s; }
+.flower:nth-child(14) { left: 40%; animation-duration: 8s;  animation-delay: 2s; }
+.flower:nth-child(15) { left: 50%; animation-duration: 11s; animation-delay: 4s; }
+.flower:nth-child(16) { left: 60%; animation-duration: 9s;  animation-delay: 1s; }
+.flower:nth-child(17) { left: 70%; animation-duration: 10s; animation-delay: 5s; }
+.flower:nth-child(18) { left: 80%; animation-duration: 12s; animation-delay: 3s; }
+.flower:nth-child(19) { left: 90%; animation-duration: 8s;  animation-delay: 6s; }
+.flower:nth-child(20) { left: 98%; animation-duration: 11s; animation-delay: 2s; }
+
+/* Flower falling animation */
 
 @keyframes falling {
     0% {
-        transform: translateY(-50px) rotate(0deg);
+        transform: translateY(-60px) rotate(0deg);
         opacity: 0;
     }
 
     10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(50vh) rotate(180deg);
         opacity: 1;
     }
 
@@ -68,53 +98,87 @@ body {
     }
 }
 
-/* ENVELOPE AREA */
+/* ==============================
+   ENVELOPE AREA
+============================== */
+
 .envelope-stage {
     flex: 1;
     min-height: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     position: relative;
     z-index: 2;
 }
 
-/* ENVELOPE BUTTON */
+/* ==============================
+   ENVELOPE BUTTON
+============================== */
+
 .envelope {
     position: relative;
-    width: 280px;
-    height: 190px;
+
+    width: 300px;
+    height: 205px;
+
     border: none;
+    outline: none;
     background: transparent;
+
     cursor: pointer;
     perspective: 1000px;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* ENVELOPE BACK */
+/* ==============================
+   ENVELOPE BACK
+============================== */
+
 .envelope-back {
     position: absolute;
     inset: 0;
-    background: #8F3026;
+
+    background: linear-gradient(
+        135deg,
+        #9B382E,
+        #7F241F
+    );
+
     border-radius: 5px;
     z-index: 1;
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.20);
 }
 
-/* WEDDING CARD */
+/* ==============================
+   WEDDING INVITATION CARD
+============================== */
+
 .invitation-card {
     position: absolute;
+
     width: 90%;
     height: 90%;
+
     left: 5%;
     bottom: 5%;
+
     background: #fffdf7;
-    border-radius: 5px;
+    border: 1px solid #E8D9C2;
+    border-radius: 4px;
+
     z-index: 2;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 1s ease;
+
     overflow: hidden;
+
+    transition: transform 1s ease;
 }
 
 .invitation-card img {
@@ -123,11 +187,20 @@ body {
     object-fit: contain;
 }
 
-/* ENVELOPE FRONT */
+/* ==============================
+   ENVELOPE FRONT
+============================== */
+
 .envelope-front {
     position: absolute;
     inset: 0;
-    background: #A63D30;
+
+    background: linear-gradient(
+        135deg,
+        #B94D3E,
+        #96352D
+    );
+
     clip-path: polygon(
         0 0,
         50% 55%,
@@ -135,34 +208,60 @@ body {
         100% 100%,
         0 100%
     );
+
     z-index: 3;
 }
 
-/* ENVELOPE FLAP */
+/* ==============================
+   ENVELOPE FLAP
+============================== */
+
 .envelope-flap {
     position: absolute;
+
     top: 0;
     left: 0;
+
     width: 100%;
     height: 55%;
-    background: #8F3026;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+    background: linear-gradient(
+        180deg,
+        #A23B30,
+        #842820
+    );
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
     transform-origin: top;
     transition: transform 0.8s ease;
+
     z-index: 4;
 }
 
-/* WAX SEAL */
+/* ==============================
+   WAX SEAL
+============================== */
+
 .wax-seal {
     position: absolute;
-    width: 65px;
-    height: 65px;
+
+    width: 68px;
+    height: 68px;
+
     background: #F5E9D8;
     border: 3px solid #D8C6A4;
     border-radius: 50%;
+
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
+
     z-index: 5;
 
     display: flex;
@@ -172,9 +271,14 @@ body {
     color: #A77B35;
     font-family: serif;
     font-size: 20px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
 }
 
-/* ENVELOPE OPEN ANIMATION */
+/* ==============================
+   ENVELOPE OPEN ANIMATION
+============================== */
+
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 0;
@@ -190,12 +294,17 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* YOU'RE INVITED TEXT */
+/* ==============================
+   YOU'RE INVITED TEXT
+============================== */
+
 .invitation-text {
     position: relative;
     z-index: 10;
+
     width: 100%;
     text-align: center;
+
     margin-top: auto;
     padding: 20px 20px 45px;
 }
@@ -211,16 +320,20 @@ body {
     font-family: cursive;
     font-size: 16px;
     font-style: italic;
+
     color: #425C57;
     margin-top: 8px;
 }
 
-/* MOBILE RESPONSIVE */
+/* ==============================
+   MOBILE RESPONSIVE
+============================== */
+
 @media (max-width: 480px) {
 
     .envelope {
         width: 260px;
-        height: 175px;
+        height: 180px;
     }
 
     .invitation-text h1 {
@@ -234,10 +347,18 @@ body {
     .invitation-text {
         padding-bottom: 35px;
     }
+
+    .flower {
+        font-size: 24px;
+    }
 }
 
-/* SMALL SCREEN */
+/* ==============================
+   SMALL HEIGHT SCREENS
+============================== */
+
 @media (max-height: 650px) {
+
     .envelope {
         width: 220px;
         height: 150px;

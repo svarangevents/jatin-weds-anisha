@@ -592,8 +592,8 @@ body::before {
 /* ENVELOPE SIZE FIX */
 
 .envelope {
-    width: 220px !important;
-    max-width: 65vw !important;
+    width: 250px !important;
+    max-width: 69vw !important;
     max-height: none !important;
     height: auto !important;
     aspect-ratio: 888 / 1308;
@@ -608,7 +608,7 @@ body::before {
 
 @media (max-width: 480px) {
     .envelope {
-        width: 200px !important;
+        width: 220px !important;
         max-width: 72vw !important;
     }
 }
